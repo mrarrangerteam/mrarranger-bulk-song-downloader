@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mrarranger Bulk Song Downloader</title>
+  <!-- Using system fonts instead of Google Fonts for CWS compliance -->
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="cyber-bg">
+    <div class="grid-lines"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+  
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-section">
+        <img src="../icons/icon48.png" alt="Logo" class="logo">
+        <div class="title-group">
+          <h1 class="title">BULK SONG DOWNLOADER</h1>
+          <span class="subtitle">MRARRANGER SYSTEM</span>
+        </div>
+        <span class="version">v1.5</span>
+      </div>
+    </header>
+    
+    <!-- Connection Status -->
+    <div class="status-bar">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-text" id="statusText">CHECKING...</span>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Scan Section -->
+      <section class="section">
+        <button class="btn btn-scan" id="scanBtn">
+          <span class="btn-icon">🔍</span>
+          SCAN SONGS FROM PAGE
+        </button>
+      </section>
+      
+      <!-- Songs Found Section (Collapsible) -->
+      <section class="section" id="songsSection" style="display: none;">
+        <div class="songs-header">
+          <div class="songs-info">
+            <span class="songs-icon">🎵</span>
+            <span class="songs-label">SONGS FOUND</span>
+            <span class="songs-count" id="songsCount">0/0</span>
+          </div>
+          <button class="btn-toggle" id="toggleListBtn">
+            <span class="toggle-icon">▶</span>
+            <span class="toggle-text">Show</span>
+          </button>
+        </div>
+        
+        <!-- Collapsible Song List -->
+        <div class="songs-list-container" id="songsListContainer" style="display: none;">
+          <div class="list-controls">
+            <button class="btn-small" id="selectAllBtn">✓ All</button>
+            <button class="btn-small" id="selectNoneBtn">✗ None</button>
+            <span class="selected-label">Selected: <span id="selectedCount">0</span></span>
+          </div>
+          <div class="song-list" id="songList"></div>
+        </div>
+      </section>
+      
+      <!-- Format Selection -->
+      <section class="section" id="formatSection" style="display: none;">
+        <h2 class="section-title">SELECT FORMAT</h2>
+        <div class="format-options">
+          <label class="format-option selected" data-format="mp3">
+            <input type="radio" name="format" value="mp3" checked>
+            <span class="format-icon">🎵</span>
+            <div class="format-info">
+              <span class="format-name">MP3 Audio</span>
+              <span class="format-desc">Direct download - Fast</span>
+            </div>
+            <span class="format-badge">FAST</span>
+          </label>
+          <label class="format-option" data-format="wav">
+            <input type="radio" name="format" value="wav">
+            <span class="format-icon">🎼</span>
+            <div class="format-info">
+              <span class="format-name">WAV Audio</span>
+              <span class="format-desc">Via Suno AI - Lossless</span>
+            </div>
+            <span class="format-badge pro">PRO</span>
+          </label>
+        </div>
+      </section>
+      
+      <!-- Download Buttons -->
+      <section class="section" id="downloadSection" style="display: none;">
+        <button class="btn btn-download" id="downloadSelectedBtn">
+          <span class="btn-icon">⚡</span>
+          DOWNLOAD SELECTED (<span id="downloadCount">0</span>)
+        </button>
+        <button class="btn btn-download-all" id="downloadAllBtn">
+          <span class="btn-icon">📦</span>
+          DOWNLOAD ALL
+        </button>
+        <button class="btn btn-clear" id="clearBtn">
+          <span class="btn-icon">🗑</span>
+          CLEAR LIST
+        </button>
+      </section>
+      
+      <!-- Progress Section -->
+      <section class="section progress-section" id="progressSection" style="display: none;">
+        <h2 class="section-title">DOWNLOAD PROGRESS</h2>
+        <div class="progress-info">
+          <span class="progress-song" id="currentSong">-</span>
+          <span class="progress-step" id="currentStep">-</span>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="progress-stats">
+          <span id="progressStats">0 / 0</span>
+          <span id="progressTime">00:00</span>
+        </div>
+        <button class="btn btn-stop" id="stopBtn">
+          <span class="btn-icon">⏹</span>
+          STOP DOWNLOAD
+        </button>
+        
+        <!-- Terminal (Collapsible) -->
+        <div class="terminal-header" id="terminalHeader">
+          <span>📋 LOG</span>
+          <button class="btn-toggle-small" id="toggleTerminalBtn">
+            <span class="toggle-icon">▶</span>
+          </button>
+        </div>
+        <div class="terminal" id="terminal" style="display: none;"></div>
+      </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Made with ❤️ by Mrarranger</span>
+    </footer>
+  </div>
+  
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+  
+  <script src="sidepanel.js"></script>
+</body>
+</html>
